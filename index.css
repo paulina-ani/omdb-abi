@@ -9,8 +9,6 @@ body {
 }
 #hero {
   height: 100vh;
-  position: absolute;
-  top: 0;
   padding: 0;
   width: 100vw;
   background: #111;
@@ -121,4 +119,22 @@ p {
   cursor: pointer;
   border-radius: 8px;
   background-image: linear-gradient(to left, blue, lightblue);
+}
+
+img {
+  padding-top: 2%;
+  width: 200px;
+  height: 300px;
+}
+
+#list ul {
+  border-left: 10%;
+  padding: 2%;
+  font-weight: bold;
+  text-align: center;
+}
+li {
+  padding-left: 5%;
+  font-weight: normal;
+  text-align: left;
 }
