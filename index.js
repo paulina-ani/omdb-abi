@@ -1,6 +1,8 @@
 const listItem = document.getElementById("list");
 const input = document.getElementById("inputText");
 const submitButton = document.getElementById("button");
+const noMoreResults = document.getElementById("noMoreResults");
+
 
 const requestData = (url, handler) => {
   fetch(url)
