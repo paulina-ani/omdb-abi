@@ -24,11 +24,7 @@ const createList = data => {
       const urlMovie =
         "http://www.omdbapi.com/?apikey=f4f6588c&i=" + id + "&plot=full";
       requestData(urlMovie, showDetails);
-      var c = listItem.getElementsByTagName("ul");
-      console.log(c.length);
       return listItem;
-    }).forEach(item => {
-      list.appendChild(item);
     });
   }
 };
@@ -102,7 +98,7 @@ const showDetails = details => {
 };
 
 const submitApp = function() {
-  var titleSearch = document.getElementById("inputText").nodeValue;
+  var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f4f6588c&s=" + titleSearch;
   fetch(urlSearch)
     .then(response => {
