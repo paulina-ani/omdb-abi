@@ -3,6 +3,11 @@ const listItem = document.getElementById("list");
 const input = document.getElementById("inputText");
 const submitButton = document.getElementById("button");
 const noMoreResults = document.getElementById("noMoreResults");
+const inputFilterByRating = document.getElementById("inputFilterByRating");
+const inputFilterByYear = document.getElementById("inputFilterByYear");
+const buttonSortByName = document.getElementById("buttonSortByName");
+const buttonSortByRating = document.getElementById("buttonSortByRating");
+const buttonSortByRelease = document.getElementById("buttonSortByRelease");
 
 const requestData = (url, handler) => {
   fetch(url)
@@ -193,6 +198,12 @@ const filterResultsByYear = () => {
 var submitApp = function() {
   noMoreResults.innerText = "";
   listItem.innerHTML = "";
+  inputFilterByRating.style.display = "block";
+  inputFilterByYear.style.display = "block";
+  buttonSortByName.style.display = "block";
+  buttonSortByRating.style.display = "block";
+  buttonSortByRelease.style.display = "block";
+
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f8746f7d&s=" + titleSearch;
   fetch(urlSearch)
@@ -204,6 +215,11 @@ var submitApp = function() {
     })
     .then(data => {
       if (data.Response === "False") {
+        inputFilterByRating.style.display = "none";
+        inputFilterByYear.style.display = "none";
+        buttonSortByName.style.display = "none";
+        buttonSortByRating.style.display = "none";
+        buttonSortByRelease.style.display = "none";
         var listItemError = document.createElement("div");
         listItemError.classList.add("errorDiv");
         listItem.appendChild(listItemError);

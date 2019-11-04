@@ -9,55 +9,55 @@
   </head>
   <body>
     <div id="hero">
+      <div id="hero__title">
+        <h1>OMDb App</h1>
+      </div>
       <div id="hero__container">
-        <div id="hero__title">
-          <h1>OMDb App</h1>
-        </div>
-        <div id="hero__search">
-          <form>
-            <input
-              type="text"
-              name="Title"
-              id="inputText"
-              placeholder="Movie name"
-            />
-            <button id="button" type="button" onclick="submitApp()">
-              Find
-            </button>
-            <input
-              type="text"
-              id="inputFilterByRating"
-              onkeydown="filterResultsByRating()"
-              placeholder="Search by rating"
-            />
-            <input
-              type="text"
-              id="inputFilterByYear"
-              onkeydown="filterResultsByYear()"
-              placeholder="Search by year"
-            />
-            <button
-              id="buttonSortByName"
-              type="button"
-              onclick="sortResultsByName()"
-            >
-              Sort by name
-            </button>
-            <button
-              id="buttonSortByRating"
-              type="button"
-              onclick="sortResultsByRating()"
-            >
-              Sort by rating
-            </button>
-            <button
-              id="buttonSortByRelease"
-              type="button"
-              onclick="sortResultsByRelease()"
-            >
-              Sort by release
-            </button>
-          </form>
+        <form id="hero__search">
+          <input
+            type="text"
+            name="Title"
+            id="inputText"
+            placeholder="Movie name"
+          />
+          <button id="button" type="button" onclick="submitApp()">
+            Find
+          </button>
+        </form>
+        <div id="hero__sort-filter">
+          <input
+            type="text"
+            id="inputFilterByRating"
+            onkeydown="filterResultsByRating()"
+            placeholder="Search by rating"
+          />
+          <input
+            type="text"
+            id="inputFilterByYear"
+            onkeydown="filterResultsByYear()"
+            placeholder="Search by year"
+          />
+          <button
+            id="buttonSortByName"
+            type="button"
+            onclick="sortResultsByName()"
+          >
+            Sort by name
+          </button>
+          <button
+            id="buttonSortByRating"
+            type="button"
+            onclick="sortResultsByRating()"
+          >
+            Sort by rating
+          </button>
+          <button
+            id="buttonSortByRelease"
+            type="button"
+            onclick="sortResultsByRelease()"
+          >
+            Sort by release
+          </button>
         </div>
       </div>
     </div>
