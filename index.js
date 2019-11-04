@@ -242,7 +242,10 @@ var submitApp = function() {
 
         if (i == numberOfPages) {
           setTimeout(function() {
-            noMoreResults.innerText = "There is no more results";
+            noMoreResults.innerText = "There is no more results...";
+            noMoreResults.style.fontWeight = "bold";
+            noMoreResults.style.textAlign = "center";
+            noMoreResults.style.paddingBottom = "5px";
           }, 4000);
         }
       }
