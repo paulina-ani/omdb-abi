@@ -1,3 +1,4 @@
+const list = document.getElementById("movie__container");
 const listItem = document.getElementById("list");
 const input = document.getElementById("inputText");
 const submitButton = document.getElementById("button");
@@ -9,14 +10,14 @@ const requestData = (url, handler) => {
       if (response.ok) {
         return response.json();
       }
-      throw new Error("Something is wrong with the data");
+      throw new Error("Something is wrong with the data. Please check");
     })
     .then(handler);
 };
 
 const createList = data => {
   listItem.innerHTML = "";
-  noMoreResults.innerText = "";
+  //noMoreResults.innerText = "";
   if (data.Response == "False") {
     listItemError = document.createElement("div");
     listItemError.classList.add("errorDiv");
@@ -29,6 +30,8 @@ const createList = data => {
         "http://www.omdbapi.com/?apikey=f8746f7d&i=" + id + "&plot=full";
       requestData(urlMovie, showDetails);
       return listItem;
+    }).forEach(item => {
+      list.appendChild(item);
     });
   }
 };
@@ -195,7 +198,7 @@ const filterResultsByYear = () => {
   }
 };
 
-const submitApp = function() {
+var submitApp = function() {
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f8746f7d&s=" + titleSearch;
   fetch(urlSearch)
@@ -208,8 +211,9 @@ const submitApp = function() {
     .then(data => {
       return (data.totalResults / 10).toFixed();
     })
-    .then(numberOfResults => {
-      for (var i = 1; i <= numberOfResults; i++) {
+    .then(numberOfPages => {
+      console.log(numberOfPages);
+      for (var i = 1; i <= numberOfPages; i++) {
         var urlPages =
           "http://www.omdbapi.com/?apikey=f8746f7d&s=" +
           titleSearch +
@@ -217,10 +221,9 @@ const submitApp = function() {
           [i];
         requestData(urlPages, createList);
 
-        if (i == numberOfResults) {
-          setTimeout(function() {
-            return (noMoreResults.innerText = "There is no more results");
-          }, 4000);
+        if (i == numberOfPages) {
+          listItem.appendChild(noMoreResults);
+          noMoreResults.innerText = "There is no more results";
         }
       }
     });
