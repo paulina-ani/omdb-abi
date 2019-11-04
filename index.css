@@ -43,6 +43,7 @@ p {
 }
 
 #inputText {
+  width: 90%;
   margin: 2%;
   padding: 2%;
   border: darkblue solid 1px;
@@ -127,14 +128,53 @@ img {
   height: 300px;
 }
 
+#list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 #list ul {
-  border-left: 10%;
+  width: 80%;
+  list-style: none;
   padding: 2%;
   font-weight: bold;
   text-align: center;
 }
+
 li {
-  padding-left: 5%;
   font-weight: normal;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  #hero__container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  #hero__search {
+    width: 40%;
+  }
+
+  #hero__sortAndFilter {
+    width: 40%;
+    flex-direction: column;
+  }
+
+  #list {
+    flex-direction: row;
+  }
+
+  #list ul {
+    width: 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  #list ul {
+    width: 25%;
+  }
 }
