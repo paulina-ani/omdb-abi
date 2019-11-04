@@ -199,6 +199,7 @@ const filterResultsByYear = () => {
 };
 
 var submitApp = function() {
+  noMoreResults.innerText = "";
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f8746f7d&s=" + titleSearch;
   fetch(urlSearch)
@@ -222,8 +223,9 @@ var submitApp = function() {
         requestData(urlPages, createList);
 
         if (i == numberOfPages) {
-          listItem.appendChild(noMoreResults);
-          noMoreResults.innerText = "There is no more results";
+          setTimeout(function() {
+            noMoreResults.innerText = "There is no more results";
+          }, 4);
         }
       }
     });
