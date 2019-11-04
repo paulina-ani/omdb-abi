@@ -16,24 +16,16 @@ const requestData = (url, handler) => {
 };
 
 const createList = data => {
-  listItem.innerHTML = "";
   noMoreResults.innerText = "";
-  if (data.Response == "False") {
-    var listItemError = document.createElement("div");
-    listItemError.classList.add("errorDiv");
-    listItem.appendChild(listItemError);
-    listItemError.innerText = "There are no results. Please try again";
-  } else {
-    data.Search.map(movie => {
-      const id = movie.imdbID;
-      const urlMovie =
-        "http://www.omdbapi.com/?apikey=f8746f7d&i=" + id + "&plot=full";
-      requestData(urlMovie, showDetails);
-      return listItem;
-    }).forEach(item => {
-      list.appendChild(item);
-    });
-  }
+  data.Search.map(movie => {
+    const id = movie.imdbID;
+    const urlMovie =
+      "http://www.omdbapi.com/?apikey=f8746f7d&i=" + id + "&plot=full";
+    requestData(urlMovie, showDetails);
+    return listItem;
+  }).forEach(item => {
+    list.appendChild(item);
+  });
 };
 
 const showDetails = details => {
@@ -200,6 +192,7 @@ const filterResultsByYear = () => {
 
 var submitApp = function() {
   noMoreResults.innerText = "";
+  listItem.innerHTML = "";
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f8746f7d&s=" + titleSearch;
   fetch(urlSearch)
@@ -210,6 +203,12 @@ var submitApp = function() {
       throw new Error("Something is wrong with the data. Please check");
     })
     .then(data => {
+      if (data.Response === "False") {
+        var listItemError = document.createElement("div");
+        listItemError.classList.add("errorDiv");
+        listItem.appendChild(listItemError);
+        listItemError.innerText = "There are no results. Please try again";
+      }
       return (data.totalResults / 10).toFixed();
     })
     .then(numberOfPages => {
