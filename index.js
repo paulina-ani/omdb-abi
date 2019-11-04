@@ -3,7 +3,6 @@ const input = document.getElementById("inputText");
 const submitButton = document.getElementById("button");
 const noMoreResults = document.getElementById("noMoreResults");
 
-
 const requestData = (url, handler) => {
   fetch(url)
     .then(response => {
@@ -17,6 +16,7 @@ const requestData = (url, handler) => {
 
 const createList = data => {
   listItem.innerHTML = "";
+  noMoreResults.innerText = "";
   if (data.Response == "False") {
     listItemError = document.createElement("div");
     listItemError.classList.add("errorDiv");
@@ -26,7 +26,7 @@ const createList = data => {
     data.Search.map(movie => {
       const id = movie.imdbID;
       const urlMovie =
-        "http://www.omdbapi.com/?apikey=f4f6588c&i=" + id + "&plot=full";
+        "http://www.omdbapi.com/?apikey=f8746f7d&i=" + id + "&plot=full";
       requestData(urlMovie, showDetails);
       return listItem;
     });
@@ -187,8 +187,6 @@ const filterResultsByYear = () => {
   for (var i = 0; i < li.length; i++) {
     var a = new Date(li[i].innerHTML);
     var b = a.getFullYear().toString();
-    console.log(b);
-    //var txtValue = b.textContent || b.innerText;
     if (b.indexOf(filter) > -1) {
       c[i].style.display = "";
     } else {
@@ -199,7 +197,7 @@ const filterResultsByYear = () => {
 
 const submitApp = function() {
   var titleSearch = document.getElementById("inputText").value;
-  var urlSearch = "http://www.omdbapi.com/?apikey=f4f6588c&s=" + titleSearch;
+  var urlSearch = "http://www.omdbapi.com/?apikey=f8746f7d&s=" + titleSearch;
   fetch(urlSearch)
     .then(response => {
       if (response.ok) {
@@ -211,16 +209,19 @@ const submitApp = function() {
       return (data.totalResults / 10).toFixed();
     })
     .then(numberOfResults => {
-      for (var i = 0; i < numberOfResults; i++) {
+      for (var i = 1; i <= numberOfResults; i++) {
         var urlPages =
-          "http://www.omdbapi.com/?apikey=f4f6588c&s=" +
+          "http://www.omdbapi.com/?apikey=f8746f7d&s=" +
           titleSearch +
           "&page=" +
-          [i + 1];
+          [i];
         requestData(urlPages, createList);
 
         if (i == numberOfResults) {
-            noMoreResults.innerText = "There is no more results";
+          setTimeout(function() {
+            return (noMoreResults.innerText = "There is no more results");
+          }, 4000);
+        }
       }
     });
 };
