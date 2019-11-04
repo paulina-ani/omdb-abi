@@ -228,6 +228,9 @@ var submitApp = function() {
         listItemError.classList.add("errorDiv");
         listItem.appendChild(listItemError);
         listItemError.innerText = "There are no results. Please try again";
+        listItemError.style.fontWeight = "bold";
+        listItemError.style.textAlign = "center";
+        listItemError.style.paddingTop = "5px";
       }
       return (data.totalResults / 10).toFixed();
     })
