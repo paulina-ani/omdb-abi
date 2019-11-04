@@ -99,6 +99,26 @@ const showDetails = details => {
   }
 };
 
+const sortResultsByName = () => {
+  var switching = true;
+  var shouldSwitch;
+  while (switching) {
+    switching = false;
+    var b = listItem.getElementsByTagName("ul");
+    for (var i = 0; i < b.length - 1; i++) {
+      shouldSwitch = false;
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+  }
+};
+
 const submitApp = function() {
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f4f6588c&s=" + titleSearch;
