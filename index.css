@@ -60,6 +60,7 @@ p {
   padding: 2%;
   border: darkblue solid 1px;
   color: black;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 10px;
   background-image: linear-gradient(to right, blue, lightblue);
@@ -97,7 +98,7 @@ p {
 #buttonSortByRating,
 #buttonSortByRelease {
   display: none;
-  padding: 2%;
+  padding: 1%;
   border: 1%;
 }
 
@@ -116,7 +117,8 @@ p {
 #buttonSortByRating,
 #buttonSortByRelease {
   color: black;
+  border: lightblue;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 8px;
   background-image: linear-gradient(to left, blue, lightblue);
 }
