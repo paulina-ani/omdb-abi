@@ -1,4 +1,5 @@
 const hero = document.getElementById("hero");
+const heroContainer = document.getElementById("hero__container");
 const heroTitle = document.getElementById("hero__title");
 const list = document.getElementById("movie__container");
 const listItem = document.getElementById("list");
@@ -207,6 +208,7 @@ var submitApp = function() {
   buttonSortByName.style.display = "block";
   buttonSortByRating.style.display = "block";
   buttonSortByRelease.style.display = "block";
+  heroContainer;
 
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f8746f7d&s=" + titleSearch;
