@@ -151,6 +151,11 @@ li {
 }
 
 @media (min-width: 768px) {
+  #hero__container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
   #hero__search {
     width: 40%;
   }
