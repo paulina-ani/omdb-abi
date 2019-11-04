@@ -11,6 +11,7 @@
     <div id="hero">
       <div id="hero__title">
         <h1>OMDb App</h1>
+        <p>Find your the best movies!</p>
       </div>
       <div id="hero__container">
         <form id="hero__search">
@@ -24,40 +25,44 @@
             Find
           </button>
         </form>
-        <div id="hero__sort-filter">
-          <input
-            type="text"
-            id="inputFilterByRating"
-            onkeydown="filterResultsByRating()"
-            placeholder="Search by rating"
-          />
-          <input
-            type="text"
-            id="inputFilterByYear"
-            onkeydown="filterResultsByYear()"
-            placeholder="Search by year"
-          />
-          <button
-            id="buttonSortByName"
-            type="button"
-            onclick="sortResultsByName()"
-          >
-            Sort by name
-          </button>
-          <button
-            id="buttonSortByRating"
-            type="button"
-            onclick="sortResultsByRating()"
-          >
-            Sort by rating
-          </button>
-          <button
-            id="buttonSortByRelease"
-            type="button"
-            onclick="sortResultsByRelease()"
-          >
-            Sort by release
-          </button>
+        <div id="hero__sortAndFilter">
+          <div id="hero__filter">
+            <input
+              type="text"
+              id="inputFilterByRating"
+              onkeydown="filterResultsByRating()"
+              placeholder="Search by rating"
+            />
+            <input
+              type="text"
+              id="inputFilterByYear"
+              onkeydown="filterResultsByYear()"
+              placeholder="Search by year"
+            />
+          </div>
+          <div id="hero__sort">
+            <button
+              id="buttonSortByName"
+              type="button"
+              onclick="sortResultsByName()"
+            >
+              Sort by name
+            </button>
+            <button
+              id="buttonSortByRating"
+              type="button"
+              onclick="sortResultsByRating()"
+            >
+              Sort by rating
+            </button>
+            <button
+              id="buttonSortByRelease"
+              type="button"
+              onclick="sortResultsByRelease()"
+            >
+              Sort by release
+            </button>
+          </div>
         </div>
       </div>
     </div>

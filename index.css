@@ -1,3 +1,122 @@
-#movie__container {
-  width: 95%;
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+}
+#hero {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  padding: 0;
+  width: 100vw;
+  background: #111;
+}
+
+#hero__title {
+  display: block;
+  padding-top: 1%;
+  text-align: center;
+  margin: 0;
+}
+h1 {
+  color: white;
+}
+p {
+  color: lightblue;
+}
+
+#hero__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+}
+
+#hero__search {
+  width: 50%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#inputText {
+  margin: 2%;
+  padding: 2%;
+  border: darkblue solid 1px;
+}
+
+#inputText::placeholder {
+  color: darkblue;
+}
+
+#button {
+  width: 90%;
+  margin: 2%;
+  padding: 2%;
+  border: darkblue solid 1px;
+  color: black;
+  cursor: pointer;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, blue, lightblue);
+}
+
+#button:hover {
+  background-image: linear-gradient(to left, blue 51%, lightblue 100%);
+}
+
+#hero__sortAndFilter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#hero__filter {
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#hero__sort {
+  width: 100%;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#inputFilterByRating,
+#inputFilterByYear,
+#buttonSortByName,
+#buttonSortByRating,
+#buttonSortByRelease {
+  display: none;
+  padding: 2%;
+  border: 1%;
+}
+
+#inputFilterByRating,
+#inputFilterByYear {
+  background: lightblue;
+  border: darkblue solid 1px;
+}
+
+#inputFilterByRating::placeholder,
+#inputFilterByYear::placeholder {
+  color: black;
+}
+
+#buttonSortByName,
+#buttonSortByRating,
+#buttonSortByRelease {
+  color: black;
+  cursor: pointer;
+  border-radius: 10px;
+  background-image: linear-gradient(to left, blue, lightblue);
 }

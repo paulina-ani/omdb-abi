@@ -1,3 +1,5 @@
+const hero = document.getElementById("hero");
+const heroTitle = document.getElementById("hero__title");
 const list = document.getElementById("movie__container");
 const listItem = document.getElementById("list");
 const input = document.getElementById("inputText");
@@ -198,6 +200,8 @@ const filterResultsByYear = () => {
 var submitApp = function() {
   noMoreResults.innerText = "";
   listItem.innerHTML = "";
+  heroTitle.style.display = "none";
+  hero.style.height = "auto";
   inputFilterByRating.style.display = "block";
   inputFilterByYear.style.display = "block";
   buttonSortByName.style.display = "block";
