@@ -4,6 +4,7 @@ const requestData = (url, handler) => {
       if (response.ok) {
         return response.json();
       }
+      throw new Error("Something is wrong with the data");
     })
     .then(handler);
 };
