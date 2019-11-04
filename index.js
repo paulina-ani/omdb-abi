@@ -1,4 +1,6 @@
 const listItem = document.getElementById("list");
+const input = document.getElementById("inputText");
+const submitButton = document.getElementById("button");
 
 const requestData = (url, handler) => {
   fetch(url)
@@ -14,7 +16,6 @@ const requestData = (url, handler) => {
 const createList = data => {
   listItem.innerHTML = "";
   if (data.Response == "False") {
-    console.log("falsefalse");
     listItemError = document.createElement("div");
     listItemError.classList.add("errorDiv");
     listItem.appendChild(listItemError);
@@ -122,3 +123,10 @@ const submitApp = function() {
       }
     });
 };
+
+input.addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    submitButton.click();
+  }
+});
