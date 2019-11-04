@@ -161,6 +161,22 @@ const sortResultsByRelease = () => {
   }
 };
 
+const filterResultsByRating = () => {
+  var input = document.getElementById("inputFilterByRating");
+  var filter = input.value.toLowerCase();
+  var li = listItem.getElementsByClassName("movieRated");
+  var c = listItem.getElementsByTagName("ul");
+  for (var i = 0; i < li.length; i++) {
+    var a = li[i];
+    var txtValue = a.textContent || a.innerText;
+    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+      c[i].style.display = "";
+    } else {
+      c[i].style.display = "none";
+    }
+  }
+};
+
 const submitApp = function() {
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f4f6588c&s=" + titleSearch;
