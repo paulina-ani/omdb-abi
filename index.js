@@ -216,6 +216,9 @@ const submitApp = function() {
           "&page=" +
           [i + 1];
         requestData(urlPages, createList);
+
+        if (i == numberOfResults) {
+            noMoreResults.innerText = "There is no more results";
       }
     });
 };
