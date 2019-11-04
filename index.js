@@ -12,6 +12,7 @@ const requestData = (url, handler) => {
 };
 
 const createList = data => {
+  listItem.innerHTML = "";
   if (data.Response == "False") {
     console.log("falsefalse");
     listItemError = document.createElement("div");
