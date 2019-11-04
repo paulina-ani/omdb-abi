@@ -30,6 +30,7 @@ p {
 #hero__container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 1%;
 }
@@ -150,11 +151,6 @@ li {
 }
 
 @media (min-width: 768px) {
-  #hero__container {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
   #hero__search {
     width: 40%;
   }
