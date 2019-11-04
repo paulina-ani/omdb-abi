@@ -177,6 +177,24 @@ const filterResultsByRating = () => {
   }
 };
 
+const filterResultsByYear = () => {
+  var input = document.getElementById("inputFilterByYear");
+  var filter = input.value.toLowerCase();
+  var li = listItem.getElementsByClassName("movieReleased");
+  var c = listItem.getElementsByTagName("ul");
+  for (var i = 0; i < li.length; i++) {
+    var a = new Date(li[i].innerHTML);
+    var b = a.getFullYear().toString();
+    console.log(b);
+    //var txtValue = b.textContent || b.innerText;
+    if (b.indexOf(filter) > -1) {
+      c[i].style.display = "";
+    } else {
+      c[i].style.display = "none";
+    }
+  }
+};
+
 const submitApp = function() {
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f4f6588c&s=" + titleSearch;
