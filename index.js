@@ -119,6 +119,27 @@ const sortResultsByName = () => {
   }
 };
 
+const sortResultsByRating = () => {
+  var switching = true;
+  var shouldSwitch;
+  while (switching) {
+    switching = false;
+    var a = listItem.getElementsByTagName("ul");
+    var b = listItem.getElementsByClassName("movieRated");
+    for (var i = 0; i < b.length - 1; i++) {
+      shouldSwitch = false;
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      a[i].parentNode.insertBefore(a[i + 1], a[i]);
+      switching = true;
+    }
+  }
+};
+
 const submitApp = function() {
   var titleSearch = document.getElementById("inputText").value;
   var urlSearch = "http://www.omdbapi.com/?apikey=f4f6588c&s=" + titleSearch;
