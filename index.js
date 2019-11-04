@@ -17,9 +17,9 @@ const requestData = (url, handler) => {
 
 const createList = data => {
   listItem.innerHTML = "";
-  //noMoreResults.innerText = "";
+  noMoreResults.innerText = "";
   if (data.Response == "False") {
-    listItemError = document.createElement("div");
+    var listItemError = document.createElement("div");
     listItemError.classList.add("errorDiv");
     listItem.appendChild(listItemError);
     listItemError.innerText = "There are no results. Please try again";
@@ -213,7 +213,6 @@ var submitApp = function() {
       return (data.totalResults / 10).toFixed();
     })
     .then(numberOfPages => {
-      console.log(numberOfPages);
       for (var i = 1; i <= numberOfPages; i++) {
         var urlPages =
           "http://www.omdbapi.com/?apikey=f8746f7d&s=" +
@@ -225,7 +224,7 @@ var submitApp = function() {
         if (i == numberOfPages) {
           setTimeout(function() {
             noMoreResults.innerText = "There is no more results";
-          }, 4);
+          }, 4000);
         }
       }
     });
